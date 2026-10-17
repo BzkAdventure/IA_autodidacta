@@ -1,0 +1,1 @@
+- [ ] [Learning path](/cursor/stores/bc-53d82bfa-0344-42bf-a2bc-bd53f18ccbf3/docs/learning-path.md) — program 5; run it with python3 in the cloud programs folder

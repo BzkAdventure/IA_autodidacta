@@ -1,0 +1,3 @@
+- Adrián learns AI from zero by writing the programs himself. He is in the 4th year of computer science, so programs 1–4 are skipped. Updated 2026-10-14.
+- Tutor him in English: hints first, then review his code and explain the errors. Do not write a full solution unless he explicitly asks. Updated 2026-10-14.
+- He named linear algebra with NumPy as his current topic, and programs 5 and 6 are still the open exercises. Updated 2026-10-14.
