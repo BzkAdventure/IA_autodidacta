@@ -56,14 +56,20 @@ while queue and actual_cord != end:
     add_to_queue(actual_cord[0], actual_cord[1] - 1)
     #coords are only added if they pass the restrictions
 
+
 path = []
 cell = end #(r,c) -> a tuple
+
 while cell != None:
-    path.append(cell) #adds the cord to the path, 
-                      #then it's origin
-    cell = came_from[cell]
-path.reverse()
-print(path)
+    path.append(cell) #adds the cord to the path, then it's origin
+    try:
+        cell = came_from[cell]
+    except KeyError:
+        print("unreachable path")
+        break
+if len(path) > 1:
+    path.reverse()
+    print(path)
 
 
     
