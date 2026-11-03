@@ -8,7 +8,6 @@ dicc = {}
 
 with open ("programs/csv/students.csv", "r", encoding="UTF-8") as f:
     line = 0
-    row_counter = 0
     for l in f:
         if line ==0:
             features = l.strip().split(",")
@@ -17,7 +16,6 @@ with open ("programs/csv/students.csv", "r", encoding="UTF-8") as f:
                     dicc[feature] = {}
                 else:
                     dicc[feature] = []
-                row_counter+=1
         else: 
             stats = l.strip().split(",")
             counter = 0
@@ -77,9 +75,9 @@ for k,v in dicc.items():
         lenght = 0
         for num in v.values():
             lenght += num
-        print(f"Missing values in {k}: {row_counter - (lenght - 1)}")
-
-    print(f"Missing values in {k}: {row_counter - (len(v) -1)}")
+        print(f"Missing values in {k}: {(line - 1) - (lenght)}") #line - 1 not to count the header
+    else:
+        print(f"Missing values in {k}: {(line - 1) - (len(v))}")
 
 #calculate the mean
 def calculate_median(feature:str) -> float:
