@@ -45,7 +45,13 @@ def is_numerical(feature)->bool:
 print(dicc)
 #count
 for k,v in dicc.items():
-    print(f"Count of {k}: {len(v)}")
+    if k =="ciudad":
+        lenght = 0
+        for num in v.values():
+            lenght += num
+        print (f"Count of {k}: {lenght}")
+    else:
+        print(f"Count of {k}: {len(v)}")
 
 
 #mean
