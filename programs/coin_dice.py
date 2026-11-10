@@ -1,6 +1,6 @@
 import random
 random.seed(a=1) #a seed to make the result repeatable. 
-def time(runs:int):
+def time(runs:int, cost:float):
     moneda = {"cara": 0, "cruz":0}
     dice = {1 : 0, 2: 0 , 3: 0, 4: 0, 5: 0, 6: 0}
 
@@ -27,20 +27,21 @@ def time(runs:int):
 
 
     #bet: we pay 6 if it appears that number  (6). Other numbers aren't paid. 
+    expected_payout = 6 * (1/6) #what it is supposed to be paid for playing
     payout = 6 * frequencies[5]
-    expected_payout = 6 * (1/6)
 
     margin_of_error = payout - expected_payout
 
 
     print(f"expected payout: {expected_payout}")
     print(f"real payout: {payout}")
-    print(f"Margin of error: {margin_of_error}")
+    print(f"Margin of error caused by randomness: {margin_of_error}")
 
+    profit = expected_payout - cost
 
-    if margin_of_error > 0:
+    if profit < 0:
         print("It's not fair; the bussiness wins")
-    elif margin_of_error < 0:
+    elif profit > 0:
         print("It's more than fair; the better wins :)")
     else:
         print("It's completely fair")
@@ -48,12 +49,12 @@ def time(runs:int):
     
 
 #100 times: 
-time(100)
+time(100,1)
 
 #1000 times:
-time(1000)
+time(1000,0.5)
 
 #10000 times: 
-time(10000)
+time(10000,2)
 
 
