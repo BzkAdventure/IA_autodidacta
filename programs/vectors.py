@@ -1,4 +1,4 @@
-
+import math
 
 def distance(a:list, b:list) -> float:
     #each point a & b are points; lists of 2 axis (f.ex a = [3,4] and b = [0,0])
@@ -9,7 +9,7 @@ def distance(a:list, b:list) -> float:
         length:float = (difference[0]**2 + difference[1]**2)**0.5
         return length
     except IndexError:
-        raise IndexError
+        print("Error de índice")
 
 length_3_4 = distance([3,4], [0,0])
 print(length_3_4)
@@ -36,15 +36,23 @@ def cosine(a, b) ->float:
     except ZeroDivisionError:
         print("Error: Can not divide /0")
 
+assert cosine([1,1], [3,3]) == 1
+assert cosine([1,-1], [1,1]) == 0
+assert math.isclose(cosine([1,1], [-1,-1]), -1)
 #cosine: delete the differences of 2 pairs of vectors that have the same angle. 
 
 def nearest(points:list, query: list) -> list:
-    minor_dist = points[0]
+    try:
+        dist = points[0]
+        minor_dist = distance(dist, query)
+    except IndexError:
+        return [None, None] #returns a list with no cords. 
     for i in range (1, len(points)):
-        dist = distance(points[i], query)
-        if distance(minor_dist, query) > dist:
-            minor_dist = points[i]
-    return minor_dist
+        dist_i = distance(points[i], query)
+        if minor_dist > dist_i:
+            minor_dist = dist_i
+            dist = points[i]
+    return dist
     
 #returns the nearest point to the query. 
 nearest_var = nearest([[0, 0], [3, 1], [10, 10]], [2, 0])
