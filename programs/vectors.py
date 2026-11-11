@@ -43,16 +43,18 @@ assert math.isclose(cosine([1,1], [-1,-1]), -1)
 
 def nearest(points:list, query: list) -> list:
     try:
-        dist = points[0]
-        minor_dist = distance(dist, query)
+        point = points[0]
+        minor_dist = distance(point, query)
     except IndexError:
+        print("unreachable index")
         return [None, None] #returns a list with no cords. 
+        
     for i in range (1, len(points)):
         dist_i = distance(points[i], query)
         if minor_dist > dist_i:
             minor_dist = dist_i
-            dist = points[i]
-    return dist
+            point = points[i]
+    return point
     
 #returns the nearest point to the query. 
 nearest_var = nearest([[0, 0], [3, 1], [10, 10]], [2, 0])
