@@ -17,8 +17,12 @@ print(length_3_4)
 
 def dot(a:list, b:list) ->float:
     #without error control
-    product_1, product_2 = a[0] * b[0], a[1] * b[1]
-    result = product_1 + product_2
+    products = []
+    for i in range (0, len(a)):
+        products.append(a[i] * b[i])
+    result = 0
+    for product in products:
+        result+=product
 
     #as we have it now, the result also grows with the lengths. We have to divide the result
     #with distance(a, [0,0]) * distance (b, [0,0]) -> later
@@ -48,7 +52,7 @@ def nearest(points:list, query: list) -> list:
     except IndexError:
         print("unreachable index")
         return [None, None] #returns a list with no cords. 
-        
+
     for i in range (1, len(points)):
         dist_i = distance(points[i], query)
         if minor_dist > dist_i:
