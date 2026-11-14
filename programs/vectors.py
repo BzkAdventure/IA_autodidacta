@@ -63,3 +63,6 @@ def nearest(points:list, query: list) -> list:
 #returns the nearest point to the query. 
 nearest_var = nearest([[0, 0], [3, 1], [10, 10]], [2, 0])
 print(nearest_var)
+
+if __name__ == '__main__':
+    main()

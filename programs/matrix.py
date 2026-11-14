@@ -15,13 +15,13 @@ def multiply(left, right) -> list:
         pass
     else:
         print("left matrix's columns does not equal to rigth matrix's rows")
-        raise IndexError
+        raise ValueError
     result = []
     columns_right = []
-    for row in range (0, len(right[0])):
+    for col in range (0, len(right[0])):
         column = []
-        for col in range(0, len(right)):
-            column.append(right[col][row])
+        for row in range(0, len(right)):
+            column.append(right[row][col])
         columns_right.append(column)
 
     for row in range(0, len(left)):
@@ -94,4 +94,28 @@ draw_in_plane(square)
 draw_in_plane(scalated_and_rotated)
 
 
+#try the next example: [[2,0],[0,1]]
+#1st rotate and 2nd scalate:
+matrix_test = [[2,0],
+                [0,1]]
 
+scale_and_rotate_2 = multiply(scale_by_2, multiply(rotate_90, matrix))
+draw_in_plane(scale_and_rotate_2)
+#result: 
+#| ....#
+#| .....
+#| .....
+#| .....
+#| #....
+
+
+rotate_and_scale_2 = multiply(rotate_90, multiply(scale_by_2, matrix))
+draw_in_plane(rotate_and_scale_2)
+#result: 
+#| ....#
+#| .....
+#| .....
+#| .....
+#| #....
+
+#is the same because the scalation is uniform
