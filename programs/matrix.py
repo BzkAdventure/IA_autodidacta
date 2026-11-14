@@ -99,7 +99,7 @@ draw_in_plane(scalated_and_rotated)
 matrix_test = [[2,0],
                 [0,1]]
 
-scale_and_rotate_2 = multiply(scale_by_2, multiply(rotate_90, matrix))
+scale_and_rotate_2 = multiply(scale_by_2, multiply(rotate_90, matrix_test))
 draw_in_plane(scale_and_rotate_2)
 #result: 
 #| ....#
@@ -109,7 +109,7 @@ draw_in_plane(scale_and_rotate_2)
 #| #....
 
 
-rotate_and_scale_2 = multiply(rotate_90, multiply(scale_by_2, matrix))
+rotate_and_scale_2 = multiply(rotate_90, multiply(scale_by_2, matrix_test))
 draw_in_plane(rotate_and_scale_2)
 #result: 
 #| ....#
